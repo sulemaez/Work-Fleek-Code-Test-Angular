@@ -1,3 +1,32 @@
-<h1>
-  TODO: Add UI and logic to retrieve a mini-statement for an account via the API
-</h1>
+<div class="container c2">
+  <label for="">Customer ID :</label>
+  <input  class="form-control" [(ngModel)]="customerId" type="text" >
+  <label for="">Account ID :</label>
+  <input  class="form-control" [(ngModel)]="accountNo" type="text" >
+  <button class="btn btn-primary" (click)="getStatement()">GET STATEMENT</button>      
+</div>
+<p *ngIf="errorMessage != ''" class="text-danger text-center mb-1">{{ errorMessage }}</p>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Transaction Id</th>
+      <th>Customer Id</th>
+      <th>Account No</th>
+      <th>Amount</th>
+      <th>Balance</th>
+      <th>Trn Type</th>
+      <th>Debit/Credit</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let trans of transactions">
+      <td>{{ trans.transactionId }}</td>
+      <td>{{ trans.customerId }}</td>
+      <td>{{ trans.accountNo }}</td>
+      <td>{{ trans.amount }}</td>
+      <td>{{ trans.balance }}</td>
+      <td>{{ trans.transactionType }}</td>
+      <td>{{ trans.debitOrCredit }}</td>
+    </tr>
+  </tbody>
+</table>

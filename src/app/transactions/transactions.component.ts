@@ -31,7 +31,7 @@ export class TransactionsComponent implements OnInit {
 
   ngOnInit() {}
 
-  onSearchKetChanged(key : string){
+  onSearchKeyChanged(key : string){
     this.searchKey = key;
   }
 }

@@ -1,4 +1,4 @@
- <app-search [searchKey]="searchKey" [searchCallBack]="getTransactions" searchKeyName="Transaction ID" (searchKeyChanged)="onSearchKetChanged($event)"></app-search>   
+ <app-search [searchKey]="searchKey" [searchCallBack]="getTransactions" searchKeyName="Transaction ID" (searchKeyChanged)="onSearchKeyChanged($event)"></app-search>   
  <p *ngIf="errorMessage != ''" class="text-danger text-center">{{ errorMessage }}</p>
  <table class="table">
   <thead>

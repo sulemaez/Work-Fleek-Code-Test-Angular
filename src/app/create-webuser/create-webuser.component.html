@@ -1,3 +1,186 @@
-<h1>
-  TODO: Add UI and logic to create a new Webuser on the databse via the API
-</h1>
+<div class="container">
+    <div class="row d-flex justify-content-center">
+         <div class="col-md-6">
+          
+        <form
+          name="form"
+          (ngSubmit)="f.form.valid && onSubmit()"
+          #f="ngForm"
+          novalidate
+        >
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input
+              type="text"
+              class="form-control"
+              name="username"
+              [(ngModel)]="form.username"
+              required
+              #username="ngModel"
+            />
+            <div
+              class="alert alert-danger"
+              role="alert"
+              *ngIf="f.submitted && username.invalid"
+            >
+              Username is required!
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input
+              type="password"
+              class="form-control"
+              name="password"
+              [(ngModel)]="form.password"
+              required
+              minlength="4"
+              #password="ngModel"
+            />
+            <div
+              class="alert alert-danger"
+              role="alert"
+              *ngIf="f.submitted && password.invalid"
+            >
+              <div *ngIf="password.errors.required">Password is required</div>
+              <div *ngIf="password.errors.minlength">
+                Password must be at least 6 characters
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="firstName">First Name</label>
+            <input
+              type="text"
+              class="form-control"
+              name="firstName"
+              [(ngModel)]="form.firstName"
+              required
+              #firstName="ngModel"
+            />
+            <div
+              class="alert alert-danger"
+              role="alert"
+              *ngIf="f.submitted && firstName.invalid"
+            >
+              First Name is required!
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="lastName">Last Name</label>
+            <input
+              type="text"
+              class="form-control"
+              name="lastName"
+              [(ngModel)]="form.lastName"
+              required
+              #lastName="ngModel"
+            />
+            <div
+              class="alert alert-danger"
+              role="alert"
+              *ngIf="f.submitted && lastName.invalid"
+            >
+              Last Name is required!
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input
+              type="email"
+              class="form-control"
+              name="email"
+              [(ngModel)]="form.email"
+              required
+              #email="ngModel"
+            />
+            <div
+              class="alert alert-danger"
+              role="alert"
+              *ngIf="f.submitted && email.invalid"
+            >
+             Enter valid email
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="customerId">Customer Id</label>
+            <input
+              type="text"
+              class="form-control"
+              name="customerId"
+              [(ngModel)]="form.customerId"
+              required
+              #customerId="ngModel"
+              minlength="4"
+            />
+            <div
+            class="alert alert-danger"
+            role="alert"
+            *ngIf="f.submitted && customerId.invalid"
+          >
+            <div *ngIf="customerId.errors.required">Customer Id is required</div>
+            <div *ngIf="customerId.errors.minlength">
+              Customer Id be at least 4 characters
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="employeeId">Employee Id</label>
+          <input
+            type="text"
+            class="form-control"
+            name="employeeId"
+            [(ngModel)]="form.employeeId"
+            required
+            #employeeId="ngModel"
+            minlength="4"
+          />
+          <div
+          class="alert alert-danger"
+          role="alert"
+          *ngIf="f.submitted && employeeId.invalid"
+        >
+          <div *ngIf="employeeId.errors.required">Employee Id is required</div>
+          <div *ngIf="employeeId.errors.minlength">
+            Employee Id must be at least 4 characters
+          </div>
+        </div>
+      </div>
+
+
+          
+          <div class="form-group">
+            <div
+              class="alert alert-danger"
+              role="alert"
+              *ngIf="f.submitted && sendFailed"
+            >
+              Login failed: {{ errorMessage }}
+            </div>
+          </div>
+
+          <div
+          class="alert alert-success"
+          role="alert"
+          *ngIf="userAdded"
+        >
+           <p>USER ADDED SUCCESSFULLY</p>
+        </div>
+
+          <div class="form-group">
+            <button class="btn btn-primary btn-block">
+              ADD
+            </button>
+          </div>
+
+        </form>
+
+      </div>
+    </div>
+</div>

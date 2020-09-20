@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { slideInAnimation } from '../../animations';
+import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-full-layout',
@@ -11,7 +13,7 @@ import { slideInAnimation } from '../../animations';
 export class FullLayoutComponent implements OnInit {
   navbarOpen : boolean = false;
 
-  constructor() { }
+  constructor(private _router : Router) { }
 
   ngOnInit() {
 
@@ -25,4 +27,11 @@ export class FullLayoutComponent implements OnInit {
      this.navbarOpen = this.navbarOpen ? false : true;
   }
 
+  
+  logout(){
+    sessionStorage.removeItem(environment.TOKEN_KEY);
+    sessionStorage.removeItem("roles");
+    this._router.navigateByUrl('/');
+  }
+ 
 }

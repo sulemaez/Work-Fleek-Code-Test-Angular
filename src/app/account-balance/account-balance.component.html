@@ -1,16 +1,7 @@
-<h1>TODO: Update UI and add logic to find account balance</h1>
-
-<form class="form-inline">
-  <li>
-    Create a reusable search component and use it here to search account balance
-    by Account No)
-  </li>
-  <li></li>
-  <li>Add the results (Account No and Account Balance) below</li>
-  <li></li>
-</form>
+<app-search [searchKey]="searchKey" [searchCallBack]="getBalance" searchKeyName="Account No" (searchKeyChanged)="onSearchKeyChanged($event)"></app-search>   
+ <p *ngIf="errorMessage != ''" class="text-danger text-center">{{ errorMessage }}</p>
 
 <div>
-  <p>Account No: ?</p>
-  <p>Account Balance: ?</p>
+  <p>Account No: {{   accountNo  }}</p>
+  <p>Account Balance: {{ accountBalance }}</p>
 </div>
