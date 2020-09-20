@@ -15,6 +15,7 @@ import { FormsModule } from "@angular/forms";
 import { CreateWebuserComponent } from "./create-webuser/create-webuser.component";
 import { MiniStatementComponent } from "./mini-statement/mini-statement.component";
 import { HttpClientModule } from '@angular/common/http';
+import { SearchComponent } from './search/search.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { HttpClientModule } from '@angular/common/http';
     FullLayoutComponent,
     CreateWebuserComponent,
     MiniStatementComponent,
+    SearchComponent,
   ],
   imports: [
     FormsModule,

@@ -1,0 +1,5 @@
+<div class="container c2">
+   <label for="">{{ searchKeyName }}</label>
+   <input (change)="keyChanged()" class="form-control" [(ngModel)]="searchKey" type="text" >
+   <button class="btn btn-primary" (click)="searchCallBack()">SEARCH</button>      
+</div>

@@ -9,22 +9,23 @@ import { environment } from 'src/environments/environment';
 export class HttpService {
   
   basUrl : string = "http://localhost:8595/springboot-rest-api/";
+  apiV : string = "api/v2/";
 
   constructor(private http: HttpClient) { }
 
   get(url : string) {
     let header : HttpHeaders = this.getHeader(); 
-    return this.http.get(`${this.basUrl}${url}`,{ headers : header });
+    return this.http.get(`${this.basUrl}${this.apiV}${url}`,{ headers : header });
   }
 
   post(url: string ,data){
     let header :HttpHeaders = this.getHeader(); 
-     return this.http.post(`${this.basUrl}${url}`,data,{ headers : header });
+     return this.http.post(`${this.basUrl}${this.apiV}${url}`,data,{ headers : header });
   }
 
   put(url : string,data){
     let header : HttpHeaders = this.getHeader(); 
-    return this.http.put(`${this.basUrl}${url}`,data,{ headers : header });
+    return this.http.put(`${this.basUrl}${this.apiV}${url}`,data,{ headers : header });
   }
   
   login(user : string,pass : string){

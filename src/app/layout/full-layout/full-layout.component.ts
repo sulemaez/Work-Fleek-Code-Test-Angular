@@ -9,6 +9,7 @@ import { slideInAnimation } from '../../animations';
   animations : [ slideInAnimation ]
 })
 export class FullLayoutComponent implements OnInit {
+  navbarOpen : boolean = false;
 
   constructor() { }
 
@@ -18,6 +19,10 @@ export class FullLayoutComponent implements OnInit {
 
   getAnimationData(routerOutlet : RouterOutlet){
     return routerOutlet && routerOutlet.activatedRouteData && routerOutlet.activatedRouteData.animation
+  }
+
+  toggleNavbar(){
+     this.navbarOpen = this.navbarOpen ? false : true;
   }
 
 }

@@ -1,13 +1,6 @@
-<h1>TODO: Add Transactions list here</h1>
-<ol>
-  <li>
-    NB: Create a reusable search component and use it here to serach a
-    transaction by transaction ID)
-  </li>
-  <li></li>
-  <li>Display the search results in the table below</li>
-</ol>
-<table class="table">
+ <app-search [searchKey]="searchKey" [searchCallBack]="getTransactions" searchKeyName="Transaction ID" (searchKeyChanged)="onSearchKetChanged($event)"></app-search>   
+ <p *ngIf="errorMessage != ''" class="text-danger text-center">{{ errorMessage }}</p>
+ <table class="table">
   <thead>
     <tr>
       <th>Transaction Id</th>
@@ -20,14 +13,14 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td>?</td>
-      <td>?</td>
-      <td>?</td>
-      <td>?</td>
-      <td>?</td>
-      <td>?</td>
-      <td>?</td>
+    <tr *ngFor="let trans of transactions">
+      <td>{{ trans.transactionId }}</td>
+      <td>{{ trans.customerId }}</td>
+      <td>{{ trans.accountNo }}</td>
+      <td>{{ trans.amount }}</td>
+      <td>{{ trans.balance }}</td>
+      <td>{{ trans.transactionType }}</td>
+      <td>{{ trans.debitOrCredit }}</td>
     </tr>
   </tbody>
 </table>
