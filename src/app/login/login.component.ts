@@ -1,5 +1,7 @@
 import { Component, OnInit } from "@angular/core";
-import {NgForm} from '@angular/forms'
+import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
+import { HttpService } from '../service/http.service'
 
 @Component({
   selector: "app-login",
@@ -8,22 +10,37 @@ import {NgForm} from '@angular/forms'
 })
 export class LoginComponent implements OnInit {
 
-  isLoggedIn : boolean = false;
+  isLoggedIn : boolean = sessionStorage.getItem(environment.TOKEN_KEY) != null;
   isLoginFailed : boolean = false;
   errorMessage : string = "";
-  roles : string = "";
+  roles : string = sessionStorage.getItem("roles");
   
-  form  = {
+  form = {
      username : "",
      password : ""
   };
 
-  constructor() {}
+  constructor(private _http : HttpService,private _router : Router) {
+  
+  }
 
   ngOnInit() {}
 
   onSubmit() {
-    console.log(this.form.username);  // { first: '', last: '' }
-    console.log(this.form.password);  // false
+    this.isLoginFailed = false;
+    this.errorMessage = "";
+    
+    this._http.login(this.form.username,this.form.password).subscribe(
+      (_response: any) => {
+      
+          const header = _response.headers.get('Authorization');
+          sessionStorage.setItem(environment.TOKEN_KEY,header);
+          sessionStorage.setItem("roles","Admin")
+          this._router.navigateByUrl('/customers');
+      },
+     _error => {
+       this.isLoginFailed = true;
+       console.log(_error)
+     });
   }
 }

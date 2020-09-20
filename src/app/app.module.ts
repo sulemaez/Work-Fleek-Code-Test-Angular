@@ -14,6 +14,7 @@ import { FullLayoutComponent } from "./layout/full-layout/full-layout.component"
 import { FormsModule } from "@angular/forms";
 import { CreateWebuserComponent } from "./create-webuser/create-webuser.component";
 import { MiniStatementComponent } from "./mini-statement/mini-statement.component";
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { MiniStatementComponent } from "./mini-statement/mini-statement.componen
     BrowserAnimationsModule,
     NgbModule,
     AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent],
