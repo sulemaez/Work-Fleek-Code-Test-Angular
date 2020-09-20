@@ -7,6 +7,7 @@
 <p>npm</p>
 
 <h6>Run</h6>
+
 <p>Install packages : npm install</p>
 <p>Run dev server : npm start</p>
-<p>Build : npm build</p>
+<p>This opens up the application on port 4200</p>
