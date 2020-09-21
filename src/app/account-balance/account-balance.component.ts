@@ -15,8 +15,8 @@ export class AccountBalanceComponent implements OnInit {
   getBalance = (args: any): void => {
     this.errorMessage = "";
     this._http.get(`accounts/${this.searchKey}`).subscribe(data => {
-      this.accountBalance = data.balance;
-      this.accountNo = data.accountNo;
+      this.accountBalance = data["balance"];
+      this.accountNo = data["accountNo"];
     },
     _error => {
         if(_error.status == 404){

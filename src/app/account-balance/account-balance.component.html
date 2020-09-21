@@ -1,7 +1,7 @@
 <app-search [searchKey]="searchKey" [searchCallBack]="getBalance" searchKeyName="Account No" (searchKeyChanged)="onSearchKeyChanged($event)"></app-search>   
  <p *ngIf="errorMessage != ''" class="text-danger text-center">{{ errorMessage }}</p>
 
-<div>
+<div class="mt-1">
   <p>Account No: {{   accountNo  }}</p>
   <p>Account Balance: {{ accountBalance }}</p>
 </div>
